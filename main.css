@@ -1,0 +1,524 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700');
+html, body{
+  background: #fff;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+.audio-container{
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+  animation: hue-rotate 10s linear infinite;
+	/* height: 80vh; */
+}
+.audiosvg-container{
+    position: relative;
+    animation: hue-rotate 10s linear infinite;
+
+}
+.play-text{
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  font-size: 35px;
+	font-family: 'Montserrat', sans-serif;
+  letter-spacing: 1px;
+/*   text-transform: uppercase; */
+  color: #1A478C;
+  opacity: 0;
+  visibility: hidden;
+}
+.pause-text{
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  font-size: 35px;
+	font-family: 'Montserrat', sans-serif;
+  letter-spacing: 1px;
+/*   text-transform: uppercase; */
+  color: #486CA3;
+  opacity: 0;
+  visibility: hidden;
+}
+.active-box{
+	width: 40%;
+  max-width: 350px;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	-webkit-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	display: none;
+}
+.audiosvg{
+	width: 100%;
+	max-width: 400px;
+  max-height: 50vh;
+  margin: auto;
+  display: block;
+}
+#hover-circle .st4{
+	transition: all 0.25s;
+}
+#ripple-circle circle{
+	opacity: 0.5;
+}
+.audio-overlay{
+	width: 100%;
+	height: 100%;
+	position: relative;
+	background-color: #fff;
+	z-index: 100;
+	bottom: 0;
+}
+@media screen and (max-width: 768px) {
+	.js-video {
+		border: none;
+	}
+	.slideshow ul li {
+	    padding: 0;
+	}
+	.info-container p {
+	    text-align: center;
+	}
+	.video-container{
+		padding: 20px 20px 8vh 20px;
+	}
+	.audio-container{
+		padding: 8vh 20px 20px 20px;
+	}
+}
+@media screen and (max-width: 480px) {
+	.circle {
+	    width: 4px;
+	    height: 4px;
+	    margin: 2px 4px;
+	}
+	#videosvg, .audiosvg {
+	    width: 66%;
+	}
+	.dialog__content {
+		width: 80% !important;
+	    padding: 10px !important;
+	}
+	.dialog__content button {
+	    border-radius: 0 !important;
+	    height: 30px !important;
+	}
+	.qingli-logo {
+	    width: 36px;
+	    height: 36px;
+	    top: 15px;
+	    right: -10px;
+	}
+}
+
+
+
+
+
+pyright a{
+    text-decoration: none;
+    color: #EE4E44;
+  }
+  
+  
+  /****** CODE ******/
+  
+  .file-upload{display:block;text-align:center;font-family: Helvetica, Arial, sans-serif;font-size: 12px;padding: 30px;}
+  .file-upload .file-select{display:block;border: 2px solid #dce4ec;color: #34495e;cursor:pointer;height:40px;line-height:40px;text-align:left;background:#FFFFFF;overflow:hidden;position:relative;}
+  .file-upload .file-select .file-select-button{background:#dce4ec;padding:0 10px;display:inline-block;height:40px;line-height:40px;}
+  .file-upload .file-select .file-select-name{line-height:40px;display:inline-block;padding:0 10px;}
+  .file-upload .file-select:hover{border-color:#34495e;transition:all .2s ease-in-out;-moz-transition:all .2s ease-in-out;-webkit-transition:all .2s ease-in-out;-o-transition:all .2s ease-in-out;}
+  .file-upload .file-select:hover .file-select-button{background:#34495e;color:#FFFFFF;transition:all .2s ease-in-out;-moz-transition:all .2s ease-in-out;-webkit-transition:all .2s ease-in-out;-o-transition:all .2s ease-in-out;}
+  .file-upload.active .file-select{border-color:#3fa46a;transition:all .2s ease-in-out;-moz-transition:all .2s ease-in-out;-webkit-transition:all .2s ease-in-out;-o-transition:all .2s ease-in-out;}
+  .file-upload.active .file-select .file-select-button{background:#3fa46a;color:#FFFFFF;transition:all .2s ease-in-out;-moz-transition:all .2s ease-in-out;-webkit-transition:all .2s ease-in-out;-o-transition:all .2s ease-in-out;}
+  .file-upload .file-select input[type=file]{z-index:100;cursor:pointer;position:absolute;height:100%;width:100%;top:0;left:0;opacity:0;filter:alpha(opacity=0);}
+  .file-upload .file-select.file-select-disabled{opacity:0.65;}
+  .file-upload .file-select.file-select-disabled:hover{cursor:default;display:block;border: 2px solid #dce4ec;color: #34495e;cursor:pointer;height:40px;line-height:40px;margin-top:5px;text-align:left;background:#FFFFFF;overflow:hidden;position:relative;}
+  .file-upload .file-select.file-select-disabled:hover .file-select-button{background:#dce4ec;color:#666666;padding:0 10px;display:inline-block;height:40px;line-height:40px;}
+  .file-upload .file-select.file-select-disabled:hover .file-select-name{line-height:40px;display:inline-block;padding:0 10px;}
+
+
+
+  .header-fixed {
+	background-color:#292c2f;
+	box-shadow:0 1px 1px #ccc;
+	padding: 20px 40px;
+	height: 80px;
+	color: #ffffff;
+	box-sizing: border-box;
+	top:-100px;
+
+	-webkit-transition:top 0.3s;
+	transition:top 0.3s;
+}
+
+.header-fixed .header-limiter {
+	max-width: 1200px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+/*	The header placeholder. It is displayed when the header is fixed to the top of the
+	browser window, in order to prevent the content of the page from jumping up. */
+
+.header-fixed-placeholder{
+	height: 80px;
+	display: none;
+}
+
+/* Logo */
+
+.header-fixed .header-limiter h1 {
+	float: left;
+	font: normal 28px Cookie, Arial, Helvetica, sans-serif;
+	line-height: 40px;
+	margin: 0;
+}
+
+.header-fixed .header-limiter h1 span {
+	color: #5383d3;
+}
+
+/* The navigation links */
+
+.header-fixed .header-limiter a {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.header-fixed .header-limiter nav {
+	font:16px Arial, Helvetica, sans-serif;
+	line-height: 40px;
+	float: right;
+}
+
+.header-fixed .header-limiter nav a{
+	display: inline-block;
+	padding: 0 5px;
+	text-decoration:none;
+	color: #ffffff;
+	opacity: 0.9;
+}
+
+.header-fixed .header-limiter nav a:hover{
+	opacity: 1;
+}
+
+.header-fixed .header-limiter nav a.selected {
+	color: #608bd2;
+	pointer-events: none;
+	opacity: 1;
+}
+
+/* Fixed version of the header */
+
+body.fixed .header-fixed {
+	padding: 10px 40px;
+	height: 50px;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+
+body.fixed .header-fixed-placeholder {
+	display: block;
+}
+
+body.fixed .header-fixed .header-limiter h1 {
+	font-size: 24px;
+	line-height: 30px;
+}
+
+body.fixed .header-fixed .header-limiter nav {
+	line-height: 28px;
+	font-size: 13px;
+}
+
+
+/* Making the header responsive */
+
+@media all and (max-width: 600px) {
+
+	.header-fixed {
+		padding: 20px 0;
+		height: 75px;
+	}
+
+	.header-fixed .header-limiter h1 {
+		float: none;
+		margin: -8px 0 10px;
+		text-align: center;
+		font-size: 24px;
+		line-height: 1;
+	}
+
+	.header-fixed .header-limiter nav {
+		line-height: 1;
+		float:none;
+	}
+
+	.header-fixed .header-limiter nav a {
+		font-size: 13px;
+	}
+
+	body.fixed .header-fixed {
+		display: none;
+	}
+
+}
+
+/*
+	 We are clearing the body's margin and padding, so that the header fits properly.
+	 We are also adding a height to demonstrate the scrolling behavior. You can remove
+	 these styles.
+ */
+
+
+
+ * {
+	 box-sizing: border-box;
+}
+
+
+ .prediction_btn {
+	 display: block;
+
+	 animation: hue-rotate 10s linear infinite;
+}
+
+.prediction_btn {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+}
+
+ .button {
+	 -webkit-font-smoothing: antialiased;
+	 background-color: #222;
+	 border: none;
+	 color: #fff;
+	 display: inline-block;
+	 font-family: 'Montserrat', sans-serif;
+	 font-size: 14px;
+	 font-weight: 100;
+	 text-decoration: none;
+	 user-select: none;
+	 letter-spacing: 1px;
+	 color: white;
+	 padding: 20px 40px;
+	 text-transform: uppercase;
+	 transition: all 0.1s ease-out;
+}
+ .button:hover {
+	 background-color: #90feb5;
+	 color: #fff;
+}
+ .button:active {
+	 transform: scale(0.95);
+}
+ .button--bubble {
+	 position: relative;
+	 z-index: 2;
+	 color: white;
+	 background: none;
+}
+ .button--bubble:hover {
+	 background: none;
+}
+ .button--bubble:hover + .button--bubble__effect-container .circle {
+	 background: #44fd82;
+}
+ .button--bubble:hover + .button--bubble__effect-container .button {
+	 background: #44fd82;
+}
+ .button--bubble:active + .button--bubble__effect-container {
+	 transform: scale(0.95);
+}
+ .button--bubble__container {
+	 position: relative;
+	 display: inline-block;
+}
+ .button--bubble__container .effect-button {
+	 position: absolute;
+	 width: 50%;
+	 height: 25%;
+	 top: 50%;
+	 left: 25%;
+	 z-index: 1;
+	 transform: translateY(-50%);
+	 background: #222;
+	 transition: background 0.1s ease-out;
+}
+ .button--bubble__effect-container {
+	 position: absolute;
+	 display: block;
+	 width: 200%;
+	 height: 400%;
+	 top: -150%;
+	 left: -50%;
+	 -webkit-filter: url("#goo");
+	 filter: url("#goo");
+	 transition: all 0.1s ease-out;
+	 pointer-events: none;
+}
+ .button--bubble__effect-container .circle {
+	 position: absolute;
+	 width: 25px;
+	 height: 25px;
+	 border-radius: 15px;
+	 background: #222;
+	 transition: background 0.1s ease-out;
+}
+ .button--bubble__effect-container .circle.top-left {
+	 top: 40%;
+	 left: 27%;
+}
+ .button--bubble__effect-container .circle.bottom-right {
+	 bottom: 40%;
+	 right: 27%;
+}
+ .goo {
+	 position: absolute;
+	 visibility: hidden;
+	 width: 1px;
+	 height: 1px;
+}
+ .button--bubble__container {
+	 top: 50%;
+	 margin-top: -25px;
+}
+ @keyframes hue-rotate {
+	 from {
+		 -webkit-filter: hue-rotate(0);
+		 -moz-filter: hue-rotate(0);
+		 -ms-filter: hue-rotate(0);
+		 filter: hue-rotate(0);
+	}
+	 to {
+		 -webkit-filter: hue-rotate(360deg);
+		 -moz-filter: hue-rotate(360deg);
+		 -ms-filter: hue-rotate(360deg);
+		 filter: hue-rotate(360deg);
+	}
+}
+ 
+
+
+#toast {
+	visibility: hidden;
+	max-width: 50px;
+	height: 50px;
+	/*margin-left: -125px;*/
+	margin: auto;
+	background-color: #333;
+	color: #fff;
+	text-align: center;
+	border-radius: 2px;
+
+	position: fixed;
+	z-index: 1;
+	left: 0;right:0;
+	bottom: 30px;
+	font-size: 17px;
+	white-space: nowrap;
+}
+#toast #img{
+width: 50px;
+height: 50px;
+	
+	float: left;
+	
+	padding-top: 16px;
+	padding-bottom: 16px;
+	
+	box-sizing: border-box;
+
+	
+	background-color: #111;
+	color: #fff;
+}
+#toast #desc{
+
+	
+	color: #fff;
+ 
+	padding: 16px;
+	
+	overflow: hidden;
+white-space: nowrap;
+}
+
+#toast.show {
+	visibility: visible;
+	-webkit-animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 2s, fadeout 0.5s 2.5s;
+	animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 4s, fadeout 0.5s 4.5s;
+}
+
+@-webkit-keyframes fadein {
+	from {bottom: 0; opacity: 0;} 
+	to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+	from {bottom: 0; opacity: 0;}
+	to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes expand {
+	from {min-width: 50px} 
+	to {min-width: 350px}
+}
+
+@keyframes expand {
+	from {min-width: 50px}
+	to {min-width: 350px}
+}
+@-webkit-keyframes stay {
+	from {min-width: 350px} 
+	to {min-width: 350px}
+}
+
+@keyframes stay {
+	from {min-width: 350px}
+	to {min-width: 350px}
+}
+@-webkit-keyframes shrink {
+	from {min-width: 350px;} 
+	to {min-width: 50px;}
+}
+
+@keyframes shrink {
+	from {min-width: 350px;} 
+	to {min-width: 50px;}
+}
+
+@-webkit-keyframes fadeout {
+	from {bottom: 30px; opacity: 1;} 
+	to {bottom: 60px; opacity: 0;}
+}
+
+@keyframes fadeout {
+	from {bottom: 30px; opacity: 1;}
+	to {bottom: 60px; opacity: 0;}
+}
+
+
+
+
+
